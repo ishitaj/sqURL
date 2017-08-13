@@ -109,7 +109,7 @@ def api(request):
             return JsonResponse({'error': 'The url given to shorten does not exist'})
 
     # If GET is called on /api, redirect to the front-end for manual entry of url
-    return JsonResponse({'error': 'Please send the short url you want to get.'})
+    return HttpResponseRedirect(reverse('squrl:index'))
 
 
 def db(request):
