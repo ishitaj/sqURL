@@ -6,8 +6,9 @@ class Squrls(models.Model):
     """
     Model for squrl url database
     """
-    squrl = models.SlugField(max_length=50, primary_key=True)
-    target = models.URLField(max_length=200)
+    squrl_id = models.AutoField(primary_key=True)
+    squrl = models.SlugField(max_length=50, unique=True)
+    target = models.URLField(max_length=200, unique=True)
     creation_date = models.DateTimeField(auto_now_add=True)
     access_date = models.DateTimeField(auto_now=True)
     visits = models.IntegerField(default=0)
